@@ -108,11 +108,11 @@ int main() {
             std::cin.ignore(10000, '\n');
             std::getline(std::cin, name);
 
-            PotionRecipe* recipe = myWorkshop.searchRecipeByName(name);
-            if (!recipe) {
-                std::cout << ">> 해당 이름의 물약이 없습니다." << std::endl;
-                continue;
-            }
+            //PotionRecipe* recipe = myWorkshop.searchRecipeByName(name);
+            //if (!recipe) {
+            //    std::cout << ">> 해당 이름의 물약이 없습니다." << std::endl;
+            //    continue;
+            //}
 
 			myWorkshop.dispensePotion(name);
         }
@@ -122,11 +122,11 @@ int main() {
             std::cin.ignore(10000, '\n');
             std::getline(std::cin, name);
 
-            PotionRecipe* recipe = myWorkshop.searchRecipeByName(name);
+            /*PotionRecipe* recipe = myWorkshop.searchRecipeByName(name);
             if (!recipe) {
                 std::cout << ">> 해당 이름의 물약이 없습니다." << std::endl;
                 continue;
-            }
+            }*/
 
             myWorkshop.returnPotion(name);
         }

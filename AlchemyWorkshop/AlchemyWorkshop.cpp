@@ -42,6 +42,23 @@ std::vector<PotionRecipe> AlchemyWorkshop::searchRecipeByIngredient(const std::s
     return recipeManager.findRecipeByIngredient(ingredient);
 }
 
-void AlchemyWorkshop::dispensePotion(std::string potionName) { stockManager.dispensePotion(potionName); }
-int AlchemyWorkshop::getStock(std::string potionName) { return stockManager.getStock(potionName); }
-void AlchemyWorkshop::returnPotion(std::string potionName) { stockManager.returnPotion(potionName); }
+void AlchemyWorkshop::dispensePotion(std::string potionName) 
+{ 
+    if (!recipeManager.findRecipeByName(potionName)) {
+        std::cout << ">> 해당 이름의 포션이 없습니다." << std::endl;
+        return;
+	}
+    stockManager.dispensePotion(potionName); 
+}
+int AlchemyWorkshop::getStock(std::string potionName) 
+{ 
+    return stockManager.getStock(potionName); 
+}
+void AlchemyWorkshop::returnPotion(std::string potionName) 
+{ 
+    if (!recipeManager.findRecipeByName(potionName)) {
+        std::cout << ">> 해당 이름의 포션이 없습니다." << std::endl;
+        return;
+    }
+    stockManager.returnPotion(potionName); 
+}
